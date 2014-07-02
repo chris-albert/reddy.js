@@ -1,0 +1,8 @@
+{
+  "viewBaseUrl"      : "js/views/",
+  "templateBase"     : "../templates/",
+  "templateExtension": "hbs",
+  "cssDirectory"     : "css/",
+  "cookieDomain"     : "reddy.js",
+  "logLevel"         : "VERBOSE"
+}
