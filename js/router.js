@@ -4,9 +4,8 @@ define([
   "underscore",
   "util/logger",
   "util/config",
-  "util/reddy",
-  "underscoreString"
-],function($,Backbone,_,Logger,config,Wecudos,plugin) {
+  "util/reddy"
+],function($,Backbone,_,Logger,config,Reddy) {
 
   var ViewManager = Backbone.Model.extend({
     routes: {
@@ -34,15 +33,15 @@ define([
         self.createController(View,route,query);
       },function(err) {
         Logger.info("ViewManager.loadController: Error loading controller");
-        var view = Wecudos.View.extend({
-          el: $(".container"),
-          templateName: route,
-          partials: [
-            "views/header",
-            "views/footer"
-          ]
-        });
-        self.createController(view,route,query);
+//        var view = Reddy.View.extend({
+//          el: $(".container"),
+//          templateName: route,
+//          partials: [
+////            "views/header",
+////            "views/footer"
+//          ]
+//        });
+//        self.createController(view,route,query);
       });
     },
     createController: function(controller,route,query) {

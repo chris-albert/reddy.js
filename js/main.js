@@ -6,7 +6,8 @@ require.config({
     backbone  : "libs/backbone.min",
     handlebars: "libs/handlebars.min",
     cookies   : "libs/jquery.cookie",
-    underscoreString: "libs/underscore.strings"
+    underscoreStrings: "libs/underscore.strings",
+    reddy: "util/reddy"
   },
   shim: {
     handlebars: {
