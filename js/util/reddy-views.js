@@ -1,5 +1,5 @@
 define([
-  "reddy"
+  "util/reddy"
 ],function(Reddy) {
   return Reddy.scope(function($,Backbone,_,Handlebars,Logger,Config) {
 

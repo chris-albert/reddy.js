@@ -12,7 +12,9 @@ define([
     recursiveLookup: function(keys,defaultValue) {
       var i = config;
       _.each(keys,function(key) {
-        if(_.isUndefined(i[key])) {
+        if(_.isUndefined(i) || _.isNull(i)) {
+          //Do nothing, let to loop die
+        } else if(_.isUndefined(i[key])) {
           i = defaultValue;
         } else {
           i = i[key];

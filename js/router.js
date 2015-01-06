@@ -4,8 +4,9 @@ define([
   "underscore",
   "util/logger",
   "util/config",
-  "util/reddy"
-],function($,Backbone,_,Logger,config,Reddy) {
+  "util/reddy",
+  "util/reddy-views"
+],function($,Backbone,_,Logger,config,Reddy,Views) {
 
   var ViewManager = Backbone.Model.extend({
     routes: {
@@ -29,20 +30,20 @@ define([
     loadController: function(route,query) {
       var self = this;
       self.callCurrentViewFunc("onBeforeTemplateLoad");
-      require(['views/' + route],function(View) {
+      require([config.get("viewBaseUrl") + route],function(View) {
         self.createController(View,route,query);
       },function(err) {
-        Logger.info("ViewManager.loadController: Error loading controller");
-//        var view = Reddy.View.extend({
-//          el: $(".container"),
-//          templateName: route,
-//          partials: [
-////            "views/header",
-////            "views/footer"
-//          ]
-//        });
-//        self.createController(view,route,query);
+        self.loadControllerError(err,route,query);
       });
+    },
+    loadControllerError: function(err,route,query) {
+      Logger.info("ViewManager.loadController: Error loading controller");
+      //If there is an error finding a controller, reddy will try and load
+      //the default view with the template name of the route
+      var view = Views.GenericView.extend({
+        templateName: route
+      });
+      this.createController(view,route,query);
     },
     createController: function(controller,route,query) {
       this.callCurrentViewFunc("onAfterControllerLoad");

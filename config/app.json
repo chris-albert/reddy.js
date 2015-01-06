@@ -1,6 +1,6 @@
 {
-  "viewBaseUrl"      : "js/views/",
-  "templateBase"     : "../templates/",
+  "viewBaseUrl"      : "../../views/",
+  "templateBase"     : "../../templates/",
   "templateExtension": "hbs",
   "cssDirectory"     : "css/",
   "cookieDomain"     : "reddy.js",
