@@ -74,7 +74,12 @@ define([
       },
       renderTemplate: function() {
         Logger.info("ReddyView.renderTemplate");
-        this.$el.html(this.template(this.data));
+        Logger.info(this.data);
+        if(_.isFunction(this.data)) {
+          this.$el.html(this.template(this.data()));
+        } else {
+          this.$el.html(this.template(this.data));
+        }
       },
       loadCss: function(url) {
         var link = document.createElement("link");

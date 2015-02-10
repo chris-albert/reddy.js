@@ -1,5 +1,5 @@
 {
-  "viewBaseUrl"      : "../../views/",
+  "viewBaseUrl"      : "../../js/views/",
   "templateBase"     : "../../templates/",
   "templateExtension": "hbs",
   "cssDirectory"     : "css/",
